@@ -39,7 +39,6 @@ matrix:
         - make
         - sudo make install
     - os: linux-ppc64le
-      dist: xenial
       addons:
         apt:
           packages:
