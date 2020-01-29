@@ -1,7 +1,10 @@
 language: C
+
 sudo: enabled
+
 before_script:
  - ./bootstrap
+
 addons:
   apt:
     update: true
@@ -33,5 +36,15 @@ matrix:
       osx_image: xcode10.2
       script:
         - ./configure --enable-intf-dummy
+        - make
+        - sudo make install
+    - os: linux-ppc64le
+      dist: xenial
+      addons:
+        apt:
+          packages:
+            - libsystemd-dev
+      script:
+        - ./configure --enable-intf-dummy --enable-intf-dbus
         - make
         - sudo make install
